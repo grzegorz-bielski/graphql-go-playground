@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: prod.Dockerfile
+    restart: always
+    volumes:
+      - ./backend:/go/src/github.com/grzegorz-bielski/microstream/backend
+
+  nginx:
+    build: ./nginx
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 80:80
