@@ -42,11 +42,14 @@ var graphiql = []byte(`
 // GraphiQLController handles requests that involves GraphiQL IDE
 type GraphiQLController struct{}
 
+// NewGraphiQLController creates new GraphiQLController
+func NewGraphiQLController() *GraphiQLController {
+	return &GraphiQLController{}
+}
+
 func (c GraphiQLController) ServeHTTP(res http.ResponseWriter, req *http.Request) {
-	if req.Method != "GET" {
-		res.Header().Set("Content-Type", "application/json; charset=utf-8")
-		res.Header().Set("X-Content-Type-Options", "nosniff")
-		res.WriteHeader(http.StatusMethodNotAllowed)
+	if req.Method != http.MethodGet {
+		respond(res, jsonErr("Method not supported"), http.StatusMethodNotAllowed)
 		return
 	}
 

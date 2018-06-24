@@ -9,5 +9,6 @@ RUN go get github.com/pilu/fresh
 
 ADD . .
 RUN dep ensure --vendor-only
+RUN go generate
 
 CMD ["fresh"]

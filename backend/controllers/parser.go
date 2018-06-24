@@ -7,7 +7,9 @@ import (
 	"net/http"
 )
 
-func parse(req *http.Request) (request, error) {
+type graphQLParser struct{}
+
+func (gqlp graphQLParser) Parse(req *http.Request) (request, error) {
 	var (
 		parsedReq request
 		err       error

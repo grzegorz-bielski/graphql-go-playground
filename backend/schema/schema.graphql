@@ -1,0 +1,11 @@
+schema {
+  query: Query
+}
+
+type Query {
+  posts(name: String): [Post]
+}
+
+type Post {
+  text: String
+}

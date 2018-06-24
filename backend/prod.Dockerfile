@@ -8,6 +8,7 @@ RUN go get github.com/golang/dep/cmd/dep
 
 ADD . .
 RUN dep ensure --vendor-only
+RUN go generate
 RUN go install -v ./...
 
 CMD ["backend"]

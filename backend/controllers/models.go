@@ -2,8 +2,13 @@ package controllers
 
 import "net/http"
 
-type parser interface {
-	parse(req *http.Request) (request, error)
+// Parser parsers HTTP GraphQL requests
+type Parser interface {
+	Parse(req *http.Request) (request, error)
+}
+
+type responder interface {
+	respond(res http.ResponseWriter, body []byte, code int)
 }
 
 type query struct {

@@ -28,3 +28,11 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/graph-gophers/graphql-go"
+
+[[constraint]]
+  name = "github.com/graph-gophers/dataloader"
+  version = "5.0.0"
